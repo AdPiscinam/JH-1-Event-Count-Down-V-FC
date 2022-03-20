@@ -13,6 +13,7 @@
 		59C2617B27E781B300248514 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C2617927E781B300248514 /* Main.storyboard */; };
 		59C2617D27E781B500248514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C2617C27E781B500248514 /* Assets.xcassets */; };
 		59C2618027E781B500248514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C2617E27E781B500248514 /* LaunchScreen.storyboard */; };
+		59C2618827E7855900248514 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2618727E7855900248514 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		59C2617C27E781B500248514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59C2617F27E781B500248514 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59C2618127E781B500248514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59C2618727E7855900248514 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		59C2617227E781B300248514 /* JH-1-Event-Count-Down-V-FC */ = {
 			isa = PBXGroup;
 			children = (
+				59C2618727E7855900248514 /* AppCoordinator.swift */,
 				59C2617327E781B300248514 /* AppDelegate.swift */,
 				59C2617527E781B300248514 /* SceneDelegate.swift */,
 				59C2617727E781B300248514 /* ViewController.swift */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C2618827E7855900248514 /* AppCoordinator.swift in Sources */,
 				59C2617827E781B300248514 /* ViewController.swift in Sources */,
 				59C2617427E781B300248514 /* AppDelegate.swift in Sources */,
 				59C2617627E781B300248514 /* SceneDelegate.swift in Sources */,
