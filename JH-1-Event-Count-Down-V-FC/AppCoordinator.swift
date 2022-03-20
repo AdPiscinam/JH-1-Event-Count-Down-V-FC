@@ -6,11 +6,15 @@
 import Foundation
 import UIKit
 //1
+
+
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get }
     func start()
     
 }
+
+
 
 final class AppCoordinator: Coordinator {
    
@@ -23,9 +27,15 @@ final class AppCoordinator: Coordinator {
     
     func start() {
         let navigationController = UINavigationController()
+        
+        let eventListCoordinator = EventListCoordinator(navigationController: navigationController)
+        
+        childCoordinators.append(eventListCoordinator)
+        
+        eventListCoordinator.start()
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
-    
-    
 }
+
