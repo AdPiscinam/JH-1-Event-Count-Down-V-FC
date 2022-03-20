@@ -7,7 +7,7 @@ import UIKit
 
 class EventListViewController: UIViewController {
     
-    //MARK: View LifeCycle
+    //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
