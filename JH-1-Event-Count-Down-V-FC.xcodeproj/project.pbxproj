@@ -14,6 +14,9 @@
 		59C2617D27E781B500248514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C2617C27E781B500248514 /* Assets.xcassets */; };
 		59C2618027E781B500248514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C2617E27E781B500248514 /* LaunchScreen.storyboard */; };
 		59C2618827E7855900248514 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2618727E7855900248514 /* AppCoordinator.swift */; };
+		59C2618A27E79B4900248514 /* EventListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2618927E79B4900248514 /* EventListCoordinator.swift */; };
+		59C2618C27E79C3100248514 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2618B27E79C3100248514 /* EventListViewController.swift */; };
+		59C2618E27E7C9E400248514 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C2618D27E7C9E400248514 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		59C2617F27E781B500248514 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59C2618127E781B500248514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C2618727E7855900248514 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		59C2618927E79B4900248514 /* EventListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListCoordinator.swift; sourceTree = "<group>"; };
+		59C2618B27E79C3100248514 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		59C2618D27E7C9E400248514 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				59C2618727E7855900248514 /* AppCoordinator.swift */,
+				59C2618927E79B4900248514 /* EventListCoordinator.swift */,
+				59C2618B27E79C3100248514 /* EventListViewController.swift */,
 				59C2617327E781B300248514 /* AppDelegate.swift */,
 				59C2617527E781B300248514 /* SceneDelegate.swift */,
 				59C2617727E781B300248514 /* ViewController.swift */,
@@ -66,6 +74,7 @@
 				59C2617C27E781B500248514 /* Assets.xcassets */,
 				59C2617E27E781B500248514 /* LaunchScreen.storyboard */,
 				59C2618127E781B500248514 /* Info.plist */,
+				59C2618D27E7C9E400248514 /* UIColor+Extensions.swift */,
 			);
 			path = "JH-1-Event-Count-Down-V-FC";
 			sourceTree = "<group>";
@@ -142,9 +151,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C2618827E7855900248514 /* AppCoordinator.swift in Sources */,
+				59C2618C27E79C3100248514 /* EventListViewController.swift in Sources */,
 				59C2617827E781B300248514 /* ViewController.swift in Sources */,
 				59C2617427E781B300248514 /* AppDelegate.swift in Sources */,
+				59C2618E27E7C9E400248514 /* UIColor+Extensions.swift in Sources */,
 				59C2617627E781B300248514 /* SceneDelegate.swift in Sources */,
+				59C2618A27E79B4900248514 /* EventListCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
