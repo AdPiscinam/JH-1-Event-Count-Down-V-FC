@@ -7,14 +7,17 @@ import UIKit
 
 class EventListViewController: UIViewController {
     
-    func instantiate() -> Self {
-        let vc = Self()
-        return vc
-    }
-
+    //MARK: View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        setupUI()
+    }
+    
+    //MARK: - Instantiate Method
+    
+    //MARK: Private Methods
+    private func setupUI() {
         let plusImage = UIImage(systemName: "plus.circle.fill")
         let barButtonItem = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(tappedRightBarButton))
         barButtonItem.tintColor = .primary
