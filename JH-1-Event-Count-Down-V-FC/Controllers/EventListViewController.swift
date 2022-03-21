@@ -7,11 +7,14 @@ import UIKit
 
 class EventListViewController: UIViewController {
     
+    var viewModel: EventListViewModel!
+    
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
+        
     }
     
     //MARK: - Instantiate Method
@@ -19,15 +22,15 @@ class EventListViewController: UIViewController {
     //MARK: Private Methods
     private func setupUI() {
         let plusImage = UIImage(systemName: "plus.circle.fill")
-        let barButtonItem = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(tappedRightBarButton))
+        let barButtonItem = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(tappedAddEventButton))
         barButtonItem.tintColor = .primary
         navigationItem.rightBarButtonItem = barButtonItem
-        navigationItem.title = "Events"
+        navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    @objc private func tappedRightBarButton() {
-        print("tapped")
+    @objc private func tappedAddEventButton() {
+        viewModel?.tappedAddEvent()
     }
 }
 
