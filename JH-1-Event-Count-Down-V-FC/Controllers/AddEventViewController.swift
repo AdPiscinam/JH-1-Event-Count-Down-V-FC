@@ -5,7 +5,7 @@
 
 import UIKit
 
-class AddEventViewController: UIViewController, UITableViewDelegate {
+class AddEventViewController: UIViewController {
     
     
     var viewModel: AddEventViewModel!
@@ -21,7 +21,12 @@ class AddEventViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         tableView.dataSource = self
-        tableView.delegate = self
+        tableView.register(TitleSubtitleCell.self, forCellReuseIdentifier: "TitleSubtitleCell")
+        viewModel.onUpdate = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        viewModel.viewDidLoad()
+        
         setupUI()
     }
     
@@ -39,7 +44,7 @@ class AddEventViewController: UIViewController, UITableViewDelegate {
         tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-        
+  
         
         
 //        let leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissEventViewController))

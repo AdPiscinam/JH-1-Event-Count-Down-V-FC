@@ -33,6 +33,10 @@ final class TitleSubtitleCell: UITableViewCell {
         verticalStackView.axis = .vertical
         titleLabel.font = .systemFont(ofSize: 22, weight: .medium)
         subtitleTextfield.font = .systemFont(ofSize: 20, weight: .medium)
+        
+        [verticalStackView, titleLabel, subtitleTextfield].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
 
     }
     
