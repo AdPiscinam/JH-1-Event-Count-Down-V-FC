@@ -8,8 +8,15 @@ import UIKit
 final class TitleSubtitleCell: UITableViewCell {
     private let titleLabel = UILabel()
     private let subtitleTextfield = UITextField()
+    private let constant: CGFloat = 15
     
-    private let verticalStackView = UIStackView()
+    private let verticalStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,14 +37,13 @@ final class TitleSubtitleCell: UITableViewCell {
     }
     
     private func setupViews() {
-        verticalStackView.axis = .vertical
         titleLabel.font = .systemFont(ofSize: 22, weight: .medium)
         subtitleTextfield.font = .systemFont(ofSize: 20, weight: .medium)
         
-        [verticalStackView, titleLabel, subtitleTextfield].forEach {
+        [titleLabel, subtitleTextfield].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-
+        
     }
     
     private func setupHierarchy() {
@@ -48,10 +54,10 @@ final class TitleSubtitleCell: UITableViewCell {
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: constant),
+            verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: constant),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: constant),
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -constant)
         ])
     }
 }

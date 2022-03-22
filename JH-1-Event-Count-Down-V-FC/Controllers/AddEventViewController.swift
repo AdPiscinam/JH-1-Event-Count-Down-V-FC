@@ -39,23 +39,39 @@ class AddEventViewController: UIViewController {
     
     private func setupUI() {
         view.addSubview(tableView)
+        navigationItem.title = viewModel.title
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+         
+        // to force large titles
+        tableView.setContentOffset(.init(x: 0, y: -1), animated: false)
+        tableView.contentInsetAdjustmentBehavior = .never
+        
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-  
+        // Cancel Button
+        let cancelBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissEventViewController))
+        cancelBarButtonItem.tintColor = .primary
+        navigationItem.leftBarButtonItem = cancelBarButtonItem
+        navigationItem.title = viewModel.title
+       
         
-        
-//        let leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissEventViewController))
-//        leftBarButtonItem.tintColor = .primary
-//        navigationItem.leftBarButtonItem = leftBarButtonItem
-//        navigationItem.title = viewModel.title
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        // Done Button
+        let doneBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(save))
+        doneBarButtonItem.tintColor = .primary
+        navigationItem.rightBarButtonItem = doneBarButtonItem
+        navigationItem.title = viewModel.title
     }
     
     @objc private func dismissEventViewController() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func save() {
+        print("Done tapped")
     }
     
 }

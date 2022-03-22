@@ -4,6 +4,7 @@
 // 
 
 final class TitleSubtitleCellViewModel {
+  
     let title: String
     private(set) var subtitle: String
     let placeholder: String

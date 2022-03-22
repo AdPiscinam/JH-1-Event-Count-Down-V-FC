@@ -8,6 +8,7 @@ import UIKit
 final class AddEventViewModel {
     
     var onUpdate: () -> Void = {}
+    var title: String = "Add"
     
     enum Cell {
         case titleSubtitle(TitleSubtitleCellViewModel)
