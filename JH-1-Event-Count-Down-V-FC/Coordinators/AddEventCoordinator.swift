@@ -16,7 +16,6 @@ final class AddEventCoordinator: Coordinator {
     
     func start() {
         let addEventViewController = AddEventViewController()
-        addEventViewController.view.backgroundColor = .red
      //    navigationController.setViewControllers([eventListViewController], animated: false)
         let addEventViewModel = AddEventViewModel()
         addEventViewModel.coordinator = self 
