@@ -30,7 +30,7 @@ final class AppCoordinator: Coordinator {
         childCoordinators.append(eventListCoordinator)
         
         eventListCoordinator.start()
-        
+        print(childCoordinators)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }

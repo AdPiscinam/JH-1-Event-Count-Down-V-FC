@@ -14,10 +14,7 @@ class EventListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
-        
     }
-    
-    //MARK: - Instantiate Method
     
     //MARK: Private Methods
     private func setupUI() {
