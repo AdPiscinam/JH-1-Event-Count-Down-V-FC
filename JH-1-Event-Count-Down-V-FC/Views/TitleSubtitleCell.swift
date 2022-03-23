@@ -7,8 +7,14 @@ import UIKit
 
 final class TitleSubtitleCell: UITableViewCell {
     private let titleLabel = UILabel()
-    private let subtitleTextfield = UITextField()
+    let subtitleTextfield = UITextField()
     private let constant: CGFloat = 15
+    
+    private let datePickerView = UIPickerView()
+    private let toolbar = UIToolbar()
+    lazy var doneButton: UIBarButtonItem = {
+        UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
+    }()
     
     private let verticalStackView: UIStackView = {
         let stack = UIStackView()
@@ -34,6 +40,7 @@ final class TitleSubtitleCell: UITableViewCell {
         titleLabel.text = viewModel.title
         subtitleTextfield.text = viewModel.subtitle
         subtitleTextfield.placeholder = viewModel.placeholder
+        subtitleTextfield.inputView = viewModel.type == .text ? nil : datePickerView
     }
     
     private func setupViews() {
@@ -59,5 +66,9 @@ final class TitleSubtitleCell: UITableViewCell {
             verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: constant),
             verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -constant)
         ])
+    }
+    
+    @objc private func tappedDone() {
+        print("Done tapped")
     }
 }

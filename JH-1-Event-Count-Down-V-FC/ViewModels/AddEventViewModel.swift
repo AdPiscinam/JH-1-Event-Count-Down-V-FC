@@ -21,8 +21,8 @@ final class AddEventViewModel {
    
     func viewDidLoad() {
         cells = [
-            .titleSubtitle(TitleSubtitleCellViewModel(title: "Name", subtitle: "", placeholder: "Add a name...")),
-            .titleSubtitle(TitleSubtitleCellViewModel(title: "Date", subtitle: "", placeholder: "Select a date..."))
+            .titleSubtitle(TitleSubtitleCellViewModel(title: "Name", subtitle: "", placeholder: "Add a name...", type: .text)),
+            .titleSubtitle(TitleSubtitleCellViewModel(title: "Date", subtitle: "", placeholder: "Select a date...", type: .date))
             
         ]
         onUpdate()
@@ -39,6 +39,21 @@ final class AddEventViewModel {
     
     func cell(for indexPath: IndexPath) -> Cell {
         return cells[indexPath.row]
+    }
+    
+    func tappedDone() {
+        print("tapedr")
+        // extract info from cell view models and save in core data
+        // tell coordinator to dismiss
+    }
+    
+    func updateCell(indexPath: IndexPath, subtitle: String) {
+        switch cells[indexPath.row] {
+        case .titleSubtitle(let titleSubtitleCellViewModel):
+            titleSubtitleCellViewModel.update(subtitle)
+        case .titleImage:
+            break
+        }
     }
 }
 

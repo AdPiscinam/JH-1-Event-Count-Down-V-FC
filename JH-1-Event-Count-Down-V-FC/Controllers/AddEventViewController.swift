@@ -20,13 +20,12 @@ class AddEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        tableView.dataSource = self
-        tableView.register(TitleSubtitleCell.self, forCellReuseIdentifier: "TitleSubtitleCell")
+
         viewModel.onUpdate = { [weak self] in
             self?.tableView.reloadData()
         }
-        viewModel.viewDidLoad()
         
+        viewModel.viewDidLoad()
         setupUI()
     }
     
@@ -37,12 +36,23 @@ class AddEventViewController: UIViewController {
         
     }
     
+    
+    
+    @objc private func dismissEventViewController() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func save() {
+        viewModel.tappedDone()
+    }
+    
     private func setupUI() {
+        tableView.dataSource = self
+        tableView.register(TitleSubtitleCell.self, forCellReuseIdentifier: "TitleSubtitleCell")
         view.addSubview(tableView)
         navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
         
-         
         // to force large titles
         tableView.setContentOffset(.init(x: 0, y: -1), animated: false)
         tableView.contentInsetAdjustmentBehavior = .never
@@ -60,19 +70,12 @@ class AddEventViewController: UIViewController {
        
         
         // Done Button
-        let doneBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(save))
+        let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(save))
         doneBarButtonItem.tintColor = .primary
         navigationItem.rightBarButtonItem = doneBarButtonItem
         navigationItem.title = viewModel.title
     }
     
-    @objc private func dismissEventViewController() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc private func save() {
-        print("Done tapped")
-    }
     
 }
 
@@ -84,6 +87,7 @@ extension AddEventViewController: UITableViewDataSource {
         case .titleSubtitle(let titleSubtitleCellViewModel):
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleSubtitleCell", for: indexPath) as! TitleSubtitleCell
             cell.update(with: titleSubtitleCellViewModel)
+            cell.subtitleTextfield.delegate = self
             return cell
         case .titleImage:
             return UITableViewCell()
@@ -93,5 +97,23 @@ extension AddEventViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
+    }
+}
+
+extension AddEventViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = textField.text else {
+            return false
+        }
+        
+        let text = currentText + string
+        let point = textField.convert(textField.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) {
+            viewModel.updateCell(indexPath: indexPath, subtitle: text)
+        }
+        
+       
+        return true
     }
 }
